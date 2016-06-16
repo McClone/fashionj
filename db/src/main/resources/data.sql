@@ -1,0 +1,1 @@
+INSERT INTO t_demo_user (user_id, user_name, id) VALUES ('admin', '123456', '1231231231231');
