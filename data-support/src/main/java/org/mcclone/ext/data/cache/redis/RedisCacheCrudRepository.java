@@ -18,19 +18,19 @@ public class RedisCacheCrudRepository<T extends Persistable, PK extends Serializ
     }
 
     public void save(T t) {
-
+        redisTemplate.opsForValue().set(t.getId(), t);
     }
 
     public void deleteById(PK id) {
-
+        redisTemplate.delete(id);
     }
 
     public void update(T t) {
-
+        redisTemplate.opsForValue().getAndSet(t.getId(), t);
     }
 
     public T findById(PK id) {
-        return null;
+        return (T) redisTemplate.opsForValue().get(id);
     }
 
     public RedisTemplate getRedisTemplate() {

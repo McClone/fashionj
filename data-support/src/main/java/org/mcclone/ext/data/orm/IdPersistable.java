@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author zhengsd
  */
 @MappedSuperclass
-public abstract class IdPersistable<ID extends Serializable> implements Persistable {
+public abstract class IdPersistable<ID extends Serializable> implements Serializable {
 
     private static final long serialVersionUID = 781064765637077486L;
     private ID id;
