@@ -3,8 +3,11 @@ package org.mcclone.web;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.mcclone.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,9 +21,13 @@ public class IndexController {
 
     Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+    @Autowired
+    private HibernateTemplate hibernateTemplate;
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ResponseBody
     public String index() {
+        hibernateTemplate.get(User.class, "123");
         Subject subject = SecurityUtils.getSubject();
         subject.hasRole("admin");
         logger.info("index");

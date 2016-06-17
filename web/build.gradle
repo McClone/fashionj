@@ -1,7 +1,6 @@
 group 'org.mcclone'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'idea'
 
@@ -10,6 +9,7 @@ repositories {
 }
 
 dependencies {
+    compile(project(':data-support'))
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     compile 'org.springframework:spring-core:4.2.6.RELEASE'
@@ -26,6 +26,7 @@ dependencies {
     compile 'org.hibernate:hibernate-core:4.3.10.Final'
     compile 'org.apache.commons:commons-dbcp2:2.1'
 
+    compile 'redis.clients:jedis:2.8.1'
     compile 'org.springframework.data:spring-data-redis:1.6.4.RELEASE'
     compile 'org.apache.shiro:shiro-core:1.2.3'
     compile 'org.apache.shiro:shiro-ehcache:1.2.3'

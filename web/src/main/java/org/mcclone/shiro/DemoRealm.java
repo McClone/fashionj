@@ -15,6 +15,10 @@ public class DemoRealm extends AuthorizingRealm {
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
+    public DemoRealm() {
+        logger.info(this.getClass().getName());
+    }
+
     /**
      * 授权
      *
@@ -23,7 +27,7 @@ public class DemoRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        logger.info("zsd");
+        logger.info("do Get Authorization Info......");
         String userName = (String) getAvailablePrincipal(principalCollection);
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.addRole("admin");

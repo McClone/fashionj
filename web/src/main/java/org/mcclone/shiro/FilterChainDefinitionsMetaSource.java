@@ -20,6 +20,7 @@ public class FilterChainDefinitionsMetaSource implements FactoryBean<Ini.Section
         if (CollectionUtils.isEmpty(section)) {
             section = ini.getSection(Ini.DEFAULT_SECTION_NAME);
         }
+        section.put("/index", "user");
 //        List<Resource> resources = resourceService.getAll();
 //        for (Resource resource : resources) {
 //            section.put(resource.getUrl(), resource.getPerms());
