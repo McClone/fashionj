@@ -1,9 +1,9 @@
 package org.mcclone.domain;
 
-import org.mcclone.ext.data.orm.CrudRepository;
+import org.mcclone.ext.data.SimpleRepository;
 
 /**
  * @author zhengsd
  */
-public interface UserDao extends CrudRepository<User, String> {
+public interface UserDao extends SimpleRepository<User, String> {
 }
