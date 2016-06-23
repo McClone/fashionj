@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-//        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
     }
 
 }
@@ -20,19 +20,19 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'war'
-//apply plugin: 'propdeps'
-//apply plugin: 'propdeps-maven'
-//apply plugin: 'propdeps-idea'
-//apply plugin: 'propdeps-eclipse'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-eclipse'
 
 
-//bootRun {
-//    addResources = true
-//}
+bootRun {
+    addResources = true
+}
 
 war {
     baseName = 'fashionwork'
-    version = '0.0.1-SNAPSHOT'
+    version = '0.0.2-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
@@ -46,14 +46,14 @@ repositories {
     maven { url 'http://repo.spring.io/plugins-release' }
 }
 
-//configurations {
-//    providedRuntime
-//}
+configurations {
+    providedRuntime
+}
 
-//compileJava.dependsOn(processResources)
+compileJava.dependsOn(processResources)
 
 dependencies {
-//    provided('org.springframework.boot:spring-boot-configuration-processor')
+    optional('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')

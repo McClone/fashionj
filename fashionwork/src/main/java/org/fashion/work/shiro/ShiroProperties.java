@@ -11,7 +11,7 @@ public class ShiroProperties {
     private String loginUrl;
     private String successUrl;
     private String unauthorizedUrl;
-    private String realm;
+    private String[] realm;
 
     public String getLoginUrl() {
         return loginUrl;
@@ -37,11 +37,11 @@ public class ShiroProperties {
         this.successUrl = successUrl;
     }
 
-    public String getRealm() {
+    public String[] getRealm() {
         return realm;
     }
 
-    public void setRealm(String realm) {
+    public void setRealm(String[] realm) {
         this.realm = realm;
     }
 }

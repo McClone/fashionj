@@ -3,8 +3,6 @@ package org.fashion.work.shiro;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,14 +25,14 @@ public class WebShiroConfiguration implements InitializingBean, ApplicationConte
     @Autowired
     private ShiroProperties shiroProperties;
 
-    private Realm realm;
+    private List<Realm> realms;
 
     private ApplicationContext applicationContext;
 
     @Bean
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(realm);
+        securityManager.setRealms(realms);
         return securityManager;
     }
 
@@ -55,7 +55,10 @@ public class WebShiroConfiguration implements InitializingBean, ApplicationConte
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        this.realm = (Realm) this.applicationContext.getBean("demoRealm");
+        this.realms = new ArrayList<>();
+        for (String realm : shiroProperties.getRealm()) {
+            this.realms.add((Realm) this.applicationContext.getBean(realm));
+        }
     }
 
     @Override

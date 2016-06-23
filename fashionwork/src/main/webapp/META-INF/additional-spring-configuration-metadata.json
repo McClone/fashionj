@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "spring.shiro.loginUrl",
+      "type": "java.lang.String",
+      "description": "loginUrl."
+    },
+    {
+      "name": "spring.shiro.successUrl",
+      "type": "java.lang.String",
+      "description": "successUrl."
+    },
+    {
+      "name": "spring.shiro.unauthorizedUrl",
+      "type": "java.lang.String",
+      "description": "unauthorizedUrl."
+    },
+    {
+      "name": "spring.shiro.realm",
+      "type": "java.lang.String",
+      "description": "realm."
+    }
+  ]
+}
