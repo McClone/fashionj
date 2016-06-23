@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    compile(project(':data-support'))
+//    compile(project(':data-support'))
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     compile 'org.springframework:spring-core:4.2.6.RELEASE'
