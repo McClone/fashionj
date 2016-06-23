@@ -1,5 +1,5 @@
 rootProject.name = 'demo'
-include 'db'
-include 'web'
 include 'fashionwork'
+include 'web'
+include 'db'
 
