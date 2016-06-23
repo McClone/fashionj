@@ -18,8 +18,9 @@
                 /unauthorized = anon
                 /login* = anon
                 /logout = logout
-                /** = roles[admin]
-                /** = authc
+                /** = user,sysUser
+                /** = authc,perms[admin:manage]
+                <!--/** = authc-->
             </value>
         </property>
     </bean>

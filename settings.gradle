@@ -2,4 +2,5 @@ rootProject.name = 'demo'
 include 'db'
 include 'web'
 include 'data-support'
+include 'fashionwork'
 

@@ -24,14 +24,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser() {
-        User user = new User();
-        user.setUserName("admin");
-        user.setUserId("admin");
-        user.setPassword("123");
-        userDao.save(user);
-        User temp = userDao.findById(user.getId());
-        if (temp != null) {
-            logger.info(user.toString());
-        }
+        logger.info("123");
+//        User user = new User();
+//        user.setUserName("admin");
+//        user.setUserId("admin");
+//        user.setPassword("123");
+//        userDao.save(user);
+//        User temp = userDao.findById(user.getId());
+//        if (temp != null) {
+//            logger.info(user.toString());
+//        }
     }
 }
