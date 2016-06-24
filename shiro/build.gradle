@@ -15,10 +15,7 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
-apply plugin: 'idea'
 apply plugin: 'propdeps'
 apply plugin: 'propdeps-maven'
 apply plugin: 'propdeps-idea'
@@ -31,37 +28,17 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
-    maven { url 'http://repo.spring.io/plugins-release' }
-}
-
 compileJava.dependsOn(processResources)
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-
     optional('org.springframework.boot:spring-boot-configuration-processor')
+    compile('org.springframework.boot:spring-boot-starter')
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-aop')
-
     compile 'org.apache.shiro:shiro-core:1.2.3'
     compile 'org.apache.shiro:shiro-ehcache:1.2.3'
     compile 'org.apache.shiro:shiro-spring:1.2.3'
     compile 'org.apache.shiro:shiro-web:1.2.3'
     compile 'org.apache.shiro:shiro-quartz:1.2.3'
-
     compile 'org.apache.commons:commons-lang3:3.4'
 }
 
-
-eclipse {
-    classpath {
-        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-    }
-}

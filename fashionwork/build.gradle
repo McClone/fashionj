@@ -16,10 +16,6 @@ buildscript {
 
 }
 
-group 'org.fashionwork'
-
-apply plugin: 'java'
-apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'war'
 apply plugin: 'propdeps'
@@ -44,35 +40,16 @@ war {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
-    maven { url 'http://repo.spring.io/plugins-release' }
-}
-
-configurations {
-    providedRuntime
-}
-
 compileJava.dependsOn(processResources)
 
 dependencies {
-    compile(project(':shiro'))
     optional('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-aop')
     compile('org.springframework.boot:spring-boot-starter-jdbc')
-//    compile('org.springframework.boot:spring-boot-starter-activemq')
-//    compile('org.springframework.boot:spring-boot-starter-amqp')
-//    compile('org.springframework.boot:spring-boot-starter-cache')
-//    compile('org.springframework.boot:spring-boot-starter-data-redis')
-//    compile('org.springframework.boot:spring-boot-starter-groovy-templates')
-//    compile('org.springframework.boot:spring-boot-starter-mail')
-//    compile('org.springframework.session:spring-session')
+    compile('org.springframework.boot:spring-boot-starter-cache')
     runtime('org.hsqldb:hsqldb')
     providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
     testCompile('org.springframework.boot:spring-boot-starter-test')
@@ -82,8 +59,8 @@ dependencies {
     compile 'org.apache.shiro:shiro-spring:1.2.3'
     compile 'org.apache.shiro:shiro-web:1.2.3'
     compile 'org.apache.shiro:shiro-quartz:1.2.3'
-
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile(project(':shiro'))
 }
 
 
