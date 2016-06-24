@@ -1,0 +1,62 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.BUILD-SNAPSHOT'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+    }
+
+}
+
+
+group 'org.fashionwork'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url 'http://repo.spring.io/plugins-release' }
+}
+
+compileJava.dependsOn(processResources)
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    optional('org.springframework.boot:spring-boot-configuration-processor')
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-aop')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+//    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile 'org.apache.shiro:shiro-core:1.2.3'
+    compile 'org.apache.shiro:shiro-ehcache:1.2.3'
+    compile 'org.apache.shiro:shiro-spring:1.2.3'
+    compile 'org.apache.shiro:shiro-web:1.2.3'
+    compile 'org.apache.shiro:shiro-quartz:1.2.3'
+
+    compile 'org.apache.commons:commons-lang3:3.4'
+}

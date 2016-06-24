@@ -1,4 +1,4 @@
-group 'org.mcclone'
+group 'org.fashionwork'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
