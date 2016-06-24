@@ -19,6 +19,26 @@
       "name": "spring.shiro.realm",
       "type": "java.lang.String",
       "description": "realm."
+    },
+    {
+      "name": "spring.shiro.chain.anon",
+      "type": "java.lang.String",
+      "description": "anon."
+    },
+    {
+      "name": "spring.shiro.chain.logout",
+      "type": "java.lang.String",
+      "description": "logout."
+    },
+    {
+      "name": "spring.shiro.chain.definitions",
+      "type": "java.lang.String",
+      "description": "definitions."
+    },
+    {
+      "name": "spring.shiro.dataBase.enable",
+      "type": "java.lang.String",
+      "description": "enable."
     }
   ]
 }
