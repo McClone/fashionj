@@ -15,6 +15,7 @@ public class ShiroProperties {
     private String unauthorizedUrl;
     private String[] realm;
     private final Chain chain = new Chain();
+    private final DataBase dataBase = new DataBase();
 
     public String getLoginUrl() {
         return loginUrl;
@@ -50,6 +51,23 @@ public class ShiroProperties {
 
     public Chain getChain() {
         return chain;
+    }
+
+    public DataBase getDataBase() {
+        return dataBase;
+    }
+
+    public static class DataBase {
+
+        private Boolean enable = true;
+
+        public Boolean getEnable() {
+            return enable;
+        }
+
+        public void setEnable(Boolean enable) {
+            this.enable = enable;
+        }
     }
 
     public static class Chain {

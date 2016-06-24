@@ -1,5 +1,6 @@
 package org.fashion.work.shiro;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.shiro.config.Ini;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -71,8 +72,10 @@ public class WebShiroConfiguration implements InitializingBean, ApplicationConte
             filterChainDefinitionMap.putAll(ShiroFilterUtils.mapFilterChain(logouts, ShiroFilterUtils.FILTER_CHAIN_LOGOUT));
         }
         String[] definitions = shiroProperties.getChain().getDefinitions();
-        setFilterChainDefinitions(definitions);
-        if (securitySourceService != null) {
+        if (!ArrayUtils.isEmpty(definitions)) {
+            setFilterChainDefinitions(definitions);
+        }
+        if (shiroProperties.getDataBase().getEnable() && securitySourceService != null) {
             for (String authority : securitySourceService.getAuthority()) {
                 for (String resource : securitySourceService.getResources(authority)) {
                     String definition = String.format("%s=perms[%s]", resource, authority);
@@ -80,7 +83,6 @@ public class WebShiroConfiguration implements InitializingBean, ApplicationConte
                 }
             }
         }
-
     }
 
     @Override
