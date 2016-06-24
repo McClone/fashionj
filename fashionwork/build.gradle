@@ -36,7 +36,7 @@ springBoot {
 
 war {
     baseName = 'fashionwork'
-    version = '0.0.2-SNAPSHOT'
+    version = '0.0.3-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
@@ -79,6 +79,8 @@ dependencies {
     compile 'org.apache.shiro:shiro-spring:1.2.3'
     compile 'org.apache.shiro:shiro-web:1.2.3'
     compile 'org.apache.shiro:shiro-quartz:1.2.3'
+
+    compile 'org.apache.commons:commons-lang3:3.4'
 }
 
 

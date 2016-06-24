@@ -55,6 +55,7 @@ public class ShiroProperties {
     public static class Chain {
         private List<String> anon;
         private List<String> logout;
+        private String[] definitions;
 
         public List<String> getAnon() {
             return anon;
@@ -70,6 +71,14 @@ public class ShiroProperties {
 
         public void setLogout(List<String> logout) {
             this.logout = logout;
+        }
+
+        public String[] getDefinitions() {
+            return definitions;
+        }
+
+        public void setDefinitions(String[] definitions) {
+            this.definitions = definitions;
         }
     }
 }

@@ -3,20 +3,17 @@ package org.fashion.work.web;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.fashion.work.shiro.ShiroProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author zhengsd
  */
 @RestController
 public class LoginController {
-
-    @Autowired(required = true)
-    private ShiroProperties shiroProperties;
 
     @GetMapping(value = "/index")
     public String index() {
@@ -26,6 +23,11 @@ public class LoginController {
     @GetMapping(value = "/login")
     public String login() {
         return "login";
+    }
+
+    @GetMapping(value = "/unauthorized")
+    public String unauthorized() {
+        return "unauthorized";
     }
 
     @PostMapping(value = "/login")

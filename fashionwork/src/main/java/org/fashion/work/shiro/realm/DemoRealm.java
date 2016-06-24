@@ -18,7 +18,7 @@ public class DemoRealm extends AuthorizingRealm {
     private static final Logger logger = LoggerFactory.getLogger(DemoRealm.class);
 
     public DemoRealm() {
-        logger.info(this.getClass().getName());
+        super();
     }
 
     /**
@@ -33,6 +33,7 @@ public class DemoRealm extends AuthorizingRealm {
         String userName = (String) getAvailablePrincipal(principalCollection);
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.addRole("admin");
+        simpleAuthorizationInfo.addStringPermission("admin");
         return simpleAuthorizationInfo;
     }
 
