@@ -2,6 +2,8 @@ package org.fashion.work.shiro;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
+
 /**
  * @author zhengsd
  */
@@ -12,6 +14,7 @@ public class ShiroProperties {
     private String successUrl;
     private String unauthorizedUrl;
     private String[] realm;
+    private final Chain chain = new Chain();
 
     public String getLoginUrl() {
         return loginUrl;
@@ -43,5 +46,30 @@ public class ShiroProperties {
 
     public void setRealm(String[] realm) {
         this.realm = realm;
+    }
+
+    public Chain getChain() {
+        return chain;
+    }
+
+    public static class Chain {
+        private List<String> anon;
+        private List<String> logout;
+
+        public List<String> getAnon() {
+            return anon;
+        }
+
+        public void setAnon(List<String> anon) {
+            this.anon = anon;
+        }
+
+        public List<String> getLogout() {
+            return logout;
+        }
+
+        public void setLogout(List<String> logout) {
+            this.logout = logout;
+        }
     }
 }

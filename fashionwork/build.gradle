@@ -30,6 +30,10 @@ bootRun {
     addResources = true
 }
 
+springBoot {
+    executable = true
+}
+
 war {
     baseName = 'fashionwork'
     version = '0.0.2-SNAPSHOT'

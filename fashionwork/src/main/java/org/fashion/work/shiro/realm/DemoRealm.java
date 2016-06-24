@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component("demoRealm")
 public class DemoRealm extends AuthorizingRealm {
 
-    protected Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger logger = LoggerFactory.getLogger(DemoRealm.class);
 
     public DemoRealm() {
         logger.info(this.getClass().getName());
