@@ -1,6 +1,6 @@
 package org.fashion.work;
 
-import org.fashion.work.shiro.EnableWebShiro;
+import org.fashionwork.shiro.EnableWebShiro;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

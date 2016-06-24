@@ -1,4 +1,4 @@
-package org.fashion.work.shiro;
+package org.fashionwork.shiro;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

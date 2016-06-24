@@ -1,4 +1,4 @@
-package org.fashion.work.shiro.web;
+package org.fashionwork.shiro.web;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;

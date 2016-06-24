@@ -16,6 +16,8 @@ buildscript {
 
 }
 
+group 'org.fashionwork'
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
@@ -36,7 +38,7 @@ springBoot {
 
 war {
     baseName = 'fashionwork'
-    version = '0.0.3-SNAPSHOT'
+    version = '0.0.4-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
@@ -57,7 +59,7 @@ configurations {
 compileJava.dependsOn(processResources)
 
 dependencies {
-//    compile(project('shiro-start'))
+    compile(project(':shiro'))
     optional('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-web')

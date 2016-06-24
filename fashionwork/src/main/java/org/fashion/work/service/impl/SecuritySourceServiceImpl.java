@@ -1,6 +1,6 @@
 package org.fashion.work.service.impl;
 
-import org.fashion.work.shiro.service.SecuritySourceService;
+import org.fashionwork.shiro.service.SecuritySourceService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

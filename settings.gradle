@@ -1,4 +1,3 @@
 rootProject.name = 'demo'
 include 'fashionwork'
-include 'shiro-start'
-
+include('shiro')

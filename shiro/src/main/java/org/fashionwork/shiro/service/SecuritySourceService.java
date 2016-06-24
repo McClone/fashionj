@@ -1,4 +1,4 @@
-package org.fashion.work.shiro.service;
+package org.fashionwork.shiro.service;
 
 import java.util.List;
 
