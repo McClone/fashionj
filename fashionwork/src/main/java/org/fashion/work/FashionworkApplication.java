@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-//@EnableWebShiro
 @EnableCaching
 public class FashionworkApplication {
 

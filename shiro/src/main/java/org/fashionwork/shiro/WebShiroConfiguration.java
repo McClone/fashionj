@@ -12,10 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -26,7 +28,9 @@ import java.util.Map;
 /**
  * @author zhengsd
  */
+@Configuration
 @EnableConfigurationProperties(ShiroProperties.class)
+@ConditionalOnWebApplication
 public class WebShiroConfiguration implements InitializingBean, ApplicationContextAware {
 
     private static final Logger logger = LoggerFactory.getLogger(WebShiroConfiguration.class);
