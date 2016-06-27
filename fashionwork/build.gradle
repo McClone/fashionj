@@ -51,7 +51,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-jdbc')
     compile('org.springframework.boot:spring-boot-starter-cache')
     compile('org.springframework.boot:spring-boot-starter-data-redis')
-//    runtime('org.hsqldb:hsqldb')
+//    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-groovy-templates')
+    runtime('org.hsqldb:hsqldb')
     compile('ojdbc14:ojdbc14:1.0')
 
     providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
