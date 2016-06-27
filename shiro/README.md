@@ -1,6 +1,6 @@
-在Spring Boot 里可以快速的使用shiro。
+##在Spring Boot 里可以快速的使用shiro。
 @EnableWebShiro 开启shiro
-properties样例
+#properties样例
 spring.shiro.loginUrl=/login
 spring.shiro.successUrl=/index
 spring.shiro.unauthorizedUrl=/unauthorized
@@ -10,6 +10,6 @@ spring.shiro.chain.logout=/logout
 spring.shiro.chain.definitions=/index=perms[admin:manage],/**=authc
 spring.shiro.dataBase.enable=false
 
-注：
-1.realm 为Spring环境里bean的名称
-2.dataBase.enable 开启数据库资源获取，需要实现接口SecuritySourceService
+#注：
+-1.realm 为Spring环境里bean的名称
+-2.dataBase.enable 开启数据库资源获取，需要实现接口SecuritySourceService
