@@ -1,8 +1,9 @@
 package org.fashionwork.demo.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -18,8 +19,6 @@ public class User implements Serializable{
     private String userName;
 
     @Id
-//    @GenericGenerator(name = "uuid", strategy = "uuid")
-//    @GeneratedValue(generator = "uuid")
     @Column(name = "ID", nullable = false, length = 32)
     public String getId() {
         return this.id;

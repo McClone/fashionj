@@ -2,10 +2,10 @@ package org.fashionwork.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-@EnableCaching
+//@EnableCaching
+//@EnableWebShiro
 public class FashionworkApplication {
 
     public static void main(String[] args) {

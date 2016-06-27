@@ -17,12 +17,12 @@ buildscript {
 }
 
 apply plugin: 'spring-boot'
-apply plugin: 'war'
+apply plugin: 'eclipse'
+//apply plugin: 'war'
 apply plugin: 'propdeps'
 apply plugin: 'propdeps-maven'
 apply plugin: 'propdeps-idea'
 apply plugin: 'propdeps-eclipse'
-
 
 bootRun {
     addResources = true
@@ -32,7 +32,7 @@ springBoot {
     executable = true
 }
 
-war {
+jar {
     baseName = 'fashionwork'
     version = '0.1.0-SNAPSHOT'
 }
@@ -43,6 +43,7 @@ targetCompatibility = 1.8
 compileJava.dependsOn(processResources)
 
 dependencies {
+
     optional('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-web')
@@ -52,11 +53,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-cache')
     compile('org.springframework.boot:spring-boot-starter-data-redis')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-//    compile('org.springframework.boot:spring-boot-starter-groovy-templates')
     runtime('org.hsqldb:hsqldb')
     compile('ojdbc14:ojdbc14:1.0')
 
-    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+//    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    compile group: 'javax.el', name: 'el-api', version: '2.2'
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
 
@@ -67,6 +69,13 @@ dependencies {
     compile 'org.apache.shiro:shiro-quartz:1.2.3'
     compile 'org.apache.commons:commons-lang3:3.4'
     compile(project(':shiro'))
+}
+
+eclipse {
+    classpath {
+        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+    }
 }
 
 

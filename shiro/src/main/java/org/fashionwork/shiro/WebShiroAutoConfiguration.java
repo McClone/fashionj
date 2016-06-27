@@ -31,9 +31,9 @@ import java.util.Map;
 @Configuration
 @EnableConfigurationProperties(ShiroProperties.class)
 @ConditionalOnWebApplication
-public class WebShiroConfiguration implements InitializingBean, ApplicationContextAware {
+public class WebShiroAutoConfiguration implements InitializingBean, ApplicationContextAware {
 
-    private static final Logger logger = LoggerFactory.getLogger(WebShiroConfiguration.class);
+    private static final Logger logger = LoggerFactory.getLogger(WebShiroAutoConfiguration.class);
 
     @Autowired
     private ShiroProperties shiroProperties;

@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Documented
-@Import({WebShiroConfiguration.class})
+@Import({WebShiroAutoConfiguration.class})
 @Configuration
 public @interface EnableWebShiro {
 }
