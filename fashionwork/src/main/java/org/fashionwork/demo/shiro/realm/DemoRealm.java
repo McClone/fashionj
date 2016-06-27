@@ -1,4 +1,4 @@
-package org.fashion.work.shiro.realm;
+package org.fashionwork.demo.shiro.realm;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

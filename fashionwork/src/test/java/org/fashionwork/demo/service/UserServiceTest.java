@@ -1,6 +1,6 @@
-package org.fashion.work.service;
+package org.fashionwork.demo.service;
 
-import org.fashion.work.domain.User;
+import org.fashionwork.demo.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
-package org.fashion.work.service.impl;
+package org.fashionwork.demo.service.impl;
 
-import org.fashion.work.domain.User;
-import org.fashion.work.domain.UserRepository;
-import org.fashion.work.service.UserService;
+import org.fashionwork.demo.domain.User;
+import org.fashionwork.demo.domain.UserRepository;
+import org.fashionwork.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

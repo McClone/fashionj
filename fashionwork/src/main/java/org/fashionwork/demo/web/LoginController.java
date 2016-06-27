@@ -1,4 +1,4 @@
-package org.fashion.work.web;
+package org.fashionwork.demo.web;
 
 import org.fashionwork.shiro.web.AbstractLoginController;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,7 +1,7 @@
-package org.fashion.work.web;
+package org.fashionwork.demo.web;
 
-import org.fashion.work.domain.User;
-import org.fashion.work.service.UserService;
+import org.fashionwork.demo.domain.User;
+import org.fashionwork.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package org.fashion.work.domain;
+package org.fashionwork.demo.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 

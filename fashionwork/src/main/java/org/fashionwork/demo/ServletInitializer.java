@@ -1,4 +1,4 @@
-package org.fashion.work;
+package org.fashionwork.demo;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

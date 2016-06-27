@@ -1,4 +1,4 @@
-package org.fashion.work.service.impl;
+package org.fashionwork.demo.service.impl;
 
 import org.fashionwork.shiro.service.SecuritySourceService;
 import org.springframework.stereotype.Service;
