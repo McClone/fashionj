@@ -1,6 +1,7 @@
  **在Spring Boot 里可以快速的使用shiro。** 
 @EnableWebShiro 开启shiro
-properties样例
+
+properties配置
 ```
 spring.shiro.loginUrl=/login
 spring.shiro.successUrl=/index
