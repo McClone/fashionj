@@ -9,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author zhengsd
  */
@@ -35,8 +38,18 @@ public class UserController {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Boolean> deleteUser(@PathVariable String id) {
         this.userService.deleteUser(this.userService.findUser(id));
-        return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/search")
+    public ResponseEntity<List<User>> search(String keyWord) {
+        try {
+            return new ResponseEntity<>(userService.findUserFullText(keyWord), HttpStatus.OK);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage(), e);
+            return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }

@@ -2,6 +2,8 @@ package org.fashionwork.demo.service;
 
 import org.fashionwork.demo.domain.User;
 
+import java.util.List;
+
 /**
  * @author zhengsd
  */
@@ -14,4 +16,6 @@ public interface UserService {
     Iterable<User> findAll();
 
     User findUser(String id);
+
+    List<User> findUserFullText(String keyWord) throws InterruptedException;
 }

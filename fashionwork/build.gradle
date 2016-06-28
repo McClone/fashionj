@@ -59,6 +59,9 @@ dependencies {
 //    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
     compile group: 'javax.el', name: 'el-api', version: '2.2'
 
+    compile group: 'org.hibernate', name: 'hibernate-search-orm', version: '5.5.3.Final'
+    compile group: 'org.hibernate', name: 'hibernate-search-infinispan', version: '5.5.3.Final'
+//    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.0.6.Final'
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
 
