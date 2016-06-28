@@ -10,12 +10,13 @@ import java.time.LocalDateTime;
  * @author zhengsd
  */
 @Controller
+@RequestMapping("/thymeleaf")
 public class TemplateController {
 
-    @RequestMapping("/doit")
+    @RequestMapping("/index")
     public String doIt(Model model) {
         model.addAttribute("now", LocalDateTime.now());
-        return "/doit";
+        return "/index";
     }
 
 }
