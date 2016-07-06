@@ -8,7 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @author zhengsd
@@ -59,6 +61,8 @@ public class UserServiceTest {
 
     @Test
     public void findUser() throws Exception {
-
+        List<User> userList = userService.findUserFullText("123");
+        List<String> strings = userList.stream().map(User::getId).collect(Collectors.toList());
+        System.out.println(strings);
     }
 }

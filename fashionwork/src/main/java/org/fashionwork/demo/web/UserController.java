@@ -15,14 +15,19 @@ import java.util.List;
 /**
  * @author zhengsd
  */
-@RestController
-@RequestMapping(value = "/user")
+//@RestController
+//@RequestMapping(value = "/user")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
+
+    @GetMapping(value = "")
+    public ResponseEntity findAllUser() {
+        return ResponseEntity.ok(this.userService.findAll());
+    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findUser(@PathVariable String id) {

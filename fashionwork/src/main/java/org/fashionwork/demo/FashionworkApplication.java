@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 //@EnableCaching
 //@EnableWebShiro
-public class FashionworkApplication {
+public class FashionWorkApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FashionworkApplication.class, args);
+        SpringApplication.run(FashionWorkApplication.class, args);
     }
 }

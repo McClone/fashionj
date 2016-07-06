@@ -57,8 +57,11 @@ public class UserServiceImpl implements UserService {
         FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManagerFactory.createEntityManager());
         fullTextEntityManager.createIndexer().startAndWait();
 
-        QueryBuilder qb = fullTextEntityManager.getSearchFactory()
-                .buildQueryBuilder().forEntity(User.class).get();
+        QueryBuilder qb = fullTextEntityManager
+                .getSearchFactory()
+                .buildQueryBuilder()
+                .forEntity(User.class)
+                .get();
         org.apache.lucene.search.Query luceneQuery = qb
                 .keyword()
                 .fuzzy()
