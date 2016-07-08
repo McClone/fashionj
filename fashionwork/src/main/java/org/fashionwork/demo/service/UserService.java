@@ -1,6 +1,8 @@
 package org.fashionwork.demo.service;
 
 import org.fashionwork.demo.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public interface UserService {
     Iterable<User> findAll();
 
     User findUser(String id);
+
+    Page<User> findAll(Pageable pageable);
 
     List<User> findUserFullText(String keyWord) throws InterruptedException;
 }

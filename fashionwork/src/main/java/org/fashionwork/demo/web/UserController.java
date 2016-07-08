@@ -5,6 +5,8 @@ import org.fashionwork.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +17,8 @@ import java.util.List;
 /**
  * @author zhengsd
  */
-//@RestController
-//@RequestMapping(value = "/user")
+@RestController
+@RequestMapping(value = "/users")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -25,8 +27,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(value = "")
-    public ResponseEntity findAllUser() {
-        return ResponseEntity.ok(this.userService.findAll());
+    public ResponseEntity findAllUser(int page, int size) {
+        Pageable pageable = new PageRequest(page, size);
+        return ResponseEntity.ok(this.userService.findAll(pageable));
     }
 
     @GetMapping(value = "/{id}")

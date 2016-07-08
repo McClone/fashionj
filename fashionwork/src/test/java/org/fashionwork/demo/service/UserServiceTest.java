@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
@@ -64,5 +66,11 @@ public class UserServiceTest {
         List<User> userList = userService.findUserFullText("123");
         List<String> strings = userList.stream().map(User::getId).collect(Collectors.toList());
         System.out.println(strings);
+    }
+
+    @Test
+    public void findAll1() throws Exception {
+        Page<User> userPage = userService.findAll(new PageRequest(1, 5));
+        System.out.println(userPage);
     }
 }
