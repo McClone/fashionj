@@ -1,7 +1,7 @@
-package org.fashionwork.demo.web;
+package org.fashionwork.web;
 
-import org.fashionwork.shiro.web.AbstractLoginController;
-import org.springframework.stereotype.Controller;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,13 +10,15 @@ import javax.servlet.http.HttpSession;
 /**
  * @author zhengsd
  */
-@Controller
+@RestController
 public class LoginController {
+
+    Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @GetMapping("test")
     public String test(HttpSession httpSession) {
-        httpSession.setAttribute("test", "test");
-        return "redirect:http://localhost:8899/test";
+        logger.info(String.valueOf(httpSession.getAttribute("test")));
+        return "test";
     }
 
 }

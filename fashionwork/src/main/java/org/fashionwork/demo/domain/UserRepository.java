@@ -1,9 +1,9 @@
 package org.fashionwork.demo.domain;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author zhengsd
  */
-public interface UserRepository extends PagingAndSortingRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, String> {
 }

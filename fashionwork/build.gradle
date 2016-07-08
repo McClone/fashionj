@@ -54,6 +54,11 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-cache')
     compile('org.springframework.boot:spring-boot-starter-data-redis')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile group: 'org.springframework.session', name: 'spring-session', version: '1.2.1.RELEASE'
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
+
+    compile(project(':shiro'))
+
     runtime('org.hsqldb:hsqldb')
     compile('ojdbc14:ojdbc14:1.0')
 
@@ -70,7 +75,6 @@ dependencies {
     compile 'org.apache.shiro:shiro-web:1.2.3'
     compile 'org.apache.shiro:shiro-quartz:1.2.3'
     compile 'org.apache.commons:commons-lang3:3.4'
-    compile(project(':shiro'))
 }
 
 eclipse {
