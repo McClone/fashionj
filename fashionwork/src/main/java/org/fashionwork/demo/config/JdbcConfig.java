@@ -6,7 +6,8 @@ import org.fashionwork.demo.domain.page.SimpleJdbcRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
+import javax.sql.DataSource;
 
 /**
  * @author zhengsd
@@ -15,12 +16,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 public class JdbcConfig {
 
     @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private DataSource dataSource;
 
     @Bean
     public JdbcRepository jdbcRepository() {
-        SimpleJdbcRepository jdbcRepository = new SimpleJdbcRepository();
-        jdbcRepository.setNamedParameterJdbcTemplate(namedParameterJdbcTemplate);
+        SimpleJdbcRepository jdbcRepository = new SimpleJdbcRepository(dataSource);
         jdbcRepository.setDialect(new NamedOracle12cDialect());
         return jdbcRepository;
     }

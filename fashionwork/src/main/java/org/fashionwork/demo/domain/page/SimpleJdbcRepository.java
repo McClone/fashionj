@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
+import javax.sql.DataSource;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -18,20 +19,22 @@ import java.util.Map;
 /**
  * @author zhengsd
  */
-public class SimpleJdbcRepository implements JdbcRepository {
+public class SimpleJdbcRepository extends NamedParameterJdbcTemplate implements JdbcRepository {
 
     private static final String COUNT_QUERY_STRING = "select count(*) from (%s) x";
 
     private Logger logger = LoggerFactory.getLogger(SimpleJdbcRepository.class);
 
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
     private Dialect dialect;
+
+    public SimpleJdbcRepository(DataSource dataSource) {
+        super(dataSource);
+    }
 
     @Override
     public <T> Page<T> queryForPage(Pageable pageable, String sql, Map<String, Object> params, RowMapper<T> rowMapper) {
         if (null == pageable) {
-            return new PageImpl<>(getNamedParameterJdbcTemplate().query(sql, params, rowMapper));
+            return new PageImpl<>(query(sql, params, rowMapper));
         }
         int total = countForInt(sql, params);
         String limitSql = dialect.getLimitHandler().processSql(sql, wrapperPageable(pageable));
@@ -39,18 +42,14 @@ public class SimpleJdbcRepository implements JdbcRepository {
         params = params != null ? params : new HashMap<>();
         params.put("offset", pageable.getOffset());
         params.put("limit", pageable.getPageSize() + pageable.getOffset());
-        List<T> content = total > pageable.getOffset() ? this.getNamedParameterJdbcTemplate().query(limitSql, params, rowMapper) : Collections.emptyList();
+        List<T> content = total > pageable.getOffset() ? this.query(limitSql, params, rowMapper) : Collections.emptyList();
         return new PageImpl<>(content, pageable, total);
-    }
-
-    public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
-        return namedParameterJdbcTemplate;
     }
 
     @Override
     public Integer countForInt(String sql, Map<String, Object> params) {
         String totalSql = String.format(COUNT_QUERY_STRING, sql);
-        return this.namedParameterJdbcTemplate.queryForObject(totalSql, params, Integer.class);
+        return this.queryForObject(totalSql, params, Integer.class);
     }
 
     public void setDialect(Dialect dialect) {
@@ -62,9 +61,5 @@ public class SimpleJdbcRepository implements JdbcRepository {
         rowSelection.setFetchSize(pageable.getPageSize());
         rowSelection.setFirstRow(pageable.getOffset());
         return rowSelection;
-    }
-
-    public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 }
