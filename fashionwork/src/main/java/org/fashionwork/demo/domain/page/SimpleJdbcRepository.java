@@ -20,6 +20,8 @@ import java.util.Map;
  */
 public class SimpleJdbcRepository implements JdbcRepository {
 
+    private static final String COUNT_QUERY_STRING = "select count(*) from (%s) x";
+
     private Logger logger = LoggerFactory.getLogger(SimpleJdbcRepository.class);
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -27,10 +29,13 @@ public class SimpleJdbcRepository implements JdbcRepository {
     private Dialect dialect;
 
     @Override
-    public <T> Page<T> findAll(Pageable pageable, String sql, Map<String, Object> params, RowMapper<T> rowMapper) {
-        int total = countSql(sql, params);
+    public <T> Page<T> queryForPage(Pageable pageable, String sql, Map<String, Object> params, RowMapper<T> rowMapper) {
+        if (null == pageable) {
+            return new PageImpl<>(getNamedParameterJdbcTemplate().query(sql, params, rowMapper));
+        }
+        int total = countForInt(sql, params);
         String limitSql = dialect.getLimitHandler().processSql(sql, wrapperPageable(pageable));
-        logger.info("sql: {}", limitSql);
+        logger.info("sql:{};total:{}", limitSql, total);
         params = params != null ? params : new HashMap<>();
         params.put("offset", pageable.getOffset());
         params.put("limit", pageable.getPageSize() + pageable.getOffset());
@@ -43,8 +48,8 @@ public class SimpleJdbcRepository implements JdbcRepository {
     }
 
     @Override
-    public Integer countSql(String sql, Map<String, Object> params) {
-        String totalSql = String.format(PageUtils.COUNT_QUERY_STRING, sql);
+    public Integer countForInt(String sql, Map<String, Object> params) {
+        String totalSql = String.format(COUNT_QUERY_STRING, sql);
         return this.namedParameterJdbcTemplate.queryForObject(totalSql, params, Integer.class);
     }
 

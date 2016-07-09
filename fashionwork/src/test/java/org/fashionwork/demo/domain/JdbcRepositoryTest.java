@@ -24,7 +24,7 @@ public class JdbcRepositoryTest {
     public void findAll() throws Exception {
 
         String sql = "SELECT ID id, USER_ID userId, USER_NAME userName FROM T_DEMO_USER";
-        Page<User> userPage = jdbcRepository.findAll(new PageRequest(1, 5), sql, null, new BeanPropertyRowMapper<>(User.class));
+        Page<User> userPage = jdbcRepository.queryForPage(new PageRequest(1, 5), sql, null, new BeanPropertyRowMapper<>(User.class));
         System.out.println(userPage.getContent());
 
     }

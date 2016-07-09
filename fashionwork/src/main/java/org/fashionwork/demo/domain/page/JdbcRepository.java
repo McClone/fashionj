@@ -11,8 +11,8 @@ import java.util.Map;
  */
 public interface JdbcRepository {
 
-    <T> Page<T> findAll(Pageable pageable, String sql, Map<String, Object> params, RowMapper<T> rowMapper);
+    <T> Page<T> queryForPage(Pageable pageable, String sql, Map<String, Object> params, RowMapper<T> rowMapper);
 
-    Integer countSql(String sql, Map<String, Object> params);
+    Integer countForInt(String sql, Map<String, Object> params);
 
 }

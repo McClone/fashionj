@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
     public Page<User> findAll(Pageable pageable) {
 //        return this.userRepository.findAll(pageable);
         String sql = "SELECT ID id, USER_ID userId, USER_NAME userName FROM T_DEMO_USER";
-        return this.jdbcRepository.findAll(pageable, sql, null, new BeanPropertyRowMapper<>(User.class));
+        return this.jdbcRepository.queryForPage(pageable, sql, null, new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
