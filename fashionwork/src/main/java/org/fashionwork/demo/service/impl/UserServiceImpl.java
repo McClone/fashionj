@@ -4,9 +4,6 @@ import org.fashionwork.demo.domain.User;
 import org.fashionwork.demo.domain.UserRepository;
 import org.fashionwork.demo.domain.page.JdbcRepository;
 import org.fashionwork.demo.service.UserService;
-import org.hibernate.search.jpa.FullTextEntityManager;
-import org.hibernate.search.jpa.Search;
-import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -17,7 +14,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManagerFactory;
-import java.util.List;
 
 /**
  * @author zhengsd
@@ -66,24 +62,4 @@ public class UserServiceImpl implements UserService {
         return this.jdbcRepository.queryForPage(pageable, sql, null, new BeanPropertyRowMapper<>(User.class));
     }
 
-    @Override
-    public List<User> findUserFullText(String keyWord) throws InterruptedException {
-        FullTextEntityManager fullTextEntityManager = Search.getFullTextEntityManager(entityManagerFactory.createEntityManager());
-        fullTextEntityManager.createIndexer().startAndWait();
-
-        QueryBuilder qb = fullTextEntityManager
-                .getSearchFactory()
-                .buildQueryBuilder()
-                .forEntity(User.class)
-                .get();
-        org.apache.lucene.search.Query luceneQuery = qb
-                .keyword()
-                .fuzzy()
-                .onFields("userId", "userName")
-                .matching(keyWord)
-                .createQuery();
-
-        javax.persistence.Query jpaQuery = fullTextEntityManager.createFullTextQuery(luceneQuery, User.class);
-        return jpaQuery.getResultList();
-    }
 }

@@ -1,4 +1,6 @@
-package org.fashionwork.demo.domain;
+package org.fashionwork.domain;
+
+import org.hibernate.search.annotations.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import java.io.Serializable;
  * @author zhengsd
  */
 @Entity
+@Indexed
 @Table(name = "T_DEMO_USER")
 public class User implements Serializable {
 
@@ -28,6 +31,7 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     @Column(name = "USER_ID", nullable = false, length = 100)
     public String getUserId() {
         return userId;
@@ -37,6 +41,7 @@ public class User implements Serializable {
         this.userId = userId;
     }
 
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     @Column(name = "USER_NAME", nullable = false, length = 100)
     public String getUserName() {
         return userName;

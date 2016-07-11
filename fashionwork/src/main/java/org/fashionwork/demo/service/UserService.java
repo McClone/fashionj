@@ -21,5 +21,4 @@ public interface UserService {
 
     Page<User> findAll(Pageable pageable);
 
-    List<User> findUserFullText(String keyWord) throws InterruptedException;
 }
