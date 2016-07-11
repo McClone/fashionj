@@ -11,26 +11,13 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
     }
 
 }
 
 apply plugin: 'spring-boot'
-apply plugin: 'eclipse'
-//apply plugin: 'war'
-apply plugin: 'propdeps'
-apply plugin: 'propdeps-maven'
-apply plugin: 'propdeps-idea'
-apply plugin: 'propdeps-eclipse'
+apply plugin: 'idea'
 
-bootRun {
-    addResources = true
-}
-
-springBoot {
-    executable = true
-}
 
 jar {
     baseName = 'fashionwork'
@@ -40,11 +27,8 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-compileJava.dependsOn(processResources)
-
 dependencies {
 
-    optional('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
@@ -54,10 +38,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-cache')
     compile('org.springframework.boot:spring-boot-starter-data-redis')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    compile group: 'org.springframework.session', name: 'spring-session', version: '1.2.1.RELEASE'
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
-
-    compile(project(':spring-boot-shiro-start'))
 
     runtime('org.hsqldb:hsqldb')
     compile('ojdbc14:ojdbc14:1.0')
@@ -77,12 +58,6 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.4'
 }
 
-eclipse {
-    classpath {
-        containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-        containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-    }
-}
 
 
 

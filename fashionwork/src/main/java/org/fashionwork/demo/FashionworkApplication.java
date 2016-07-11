@@ -7,7 +7,6 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 //@EnableCaching
-//@EnableWebShiro
 //@EnableRedisHttpSession
 public class FashionWorkApplication extends SpringBootServletInitializer {
 
