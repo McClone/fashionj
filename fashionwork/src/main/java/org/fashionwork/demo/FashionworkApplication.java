@@ -7,7 +7,6 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
 //@EnableCaching
-//@EnableRedisHttpSession
 public class FashionWorkApplication extends SpringBootServletInitializer {
 
     @Override

@@ -1,4 +1,4 @@
-package org.fashionwork.demo.web;
+package org.fashionwork.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
