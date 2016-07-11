@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.BUILD-SNAPSHOT'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+    }
+}
+
+apply plugin: 'spring-boot'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-eclipse'
+
+jar {
+    baseName = 'spring-boot-shiro-start'
+    version = '1.0-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.dependsOn(processResources)
+
+dependencies {
+    optional('org.springframework.boot:spring-boot-configuration-processor')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile 'org.apache.shiro:shiro-core:1.2.3'
+    compile 'org.apache.shiro:shiro-ehcache:1.2.3'
+    compile 'org.apache.shiro:shiro-spring:1.2.3'
+    compile 'org.apache.shiro:shiro-web:1.2.3'
+    compile 'org.apache.shiro:shiro-quartz:1.2.3'
+    compile 'org.apache.commons:commons-lang3:3.4'
+}
+

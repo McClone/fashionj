@@ -9,6 +9,8 @@ import org.hibernate.engine.spi.RowSelection;
 import java.util.Locale;
 
 /**
+ * <p>提供占位符形式的Dialect</p>
+ *
  * @author zhengsd
  */
 public class NamedOracle12cDialect extends Oracle12cDialect {

@@ -1,4 +1,4 @@
 rootProject.name = 'demo'
 include('fashionwork')
-include('shiro')
-include('web')
+include('spring-boot-shiro-start')
+include('spring-boot-shiro-start-example')

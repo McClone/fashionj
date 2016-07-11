@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * <p>扩展NamedParameterJdbcTemplate</p>
+ * <p>在spring data 里提供Page分页形式的NamedParameterJdbcTemplate</p>
+ *
  * @author zhengsd
  */
 public class SimpleJdbcRepository extends NamedParameterJdbcTemplate implements JdbcRepository {
@@ -29,6 +32,7 @@ public class SimpleJdbcRepository extends NamedParameterJdbcTemplate implements 
 
     public SimpleJdbcRepository(DataSource dataSource) {
         super(dataSource);
+        logger.info(dataSource.getClass().getName());
     }
 
     @Override
