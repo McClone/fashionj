@@ -16,7 +16,6 @@ buildscript {
 }
 
 apply plugin: 'spring-boot'
-apply plugin: 'idea'
 
 
 jar {
@@ -41,13 +40,15 @@ dependencies {
 
     runtime('org.hsqldb:hsqldb')
     compile('ojdbc14:ojdbc14:1.0')
-
+    compile(project(':spring-data-jdbc-support'))
     compile group: 'javax.el', name: 'el-api', version: '2.2'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
 
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.2'
+
 }
 
 

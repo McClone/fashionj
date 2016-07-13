@@ -23,12 +23,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "")
-    public ResponseEntity findAllUser(int page, int size) {
-        Pageable pageable = new PageRequest(page, size);
-        return ResponseEntity.ok(this.userService.findAll(pageable));
-    }
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findUser(@PathVariable String id) {
         return new ResponseEntity<User>(userService.findUser(id), HttpStatus.OK);
