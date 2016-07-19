@@ -20,6 +20,9 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private SchedulingTask schedulingTask;
+
     @Test
     public void saveUser() throws Exception {
         User user = new User();
@@ -30,7 +33,7 @@ public class UserServiceTest {
 
     @Test
     public void updateUser() throws Exception {
-
+        schedulingTask.doAsyncSomething();
     }
 
     @Test

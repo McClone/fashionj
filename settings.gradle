@@ -8,3 +8,5 @@ include('hibernate-search-example')
 include('mybatis-spring-boot-starter-example')
 include('spring-data-jdbc-support')
 include('spring-data-jdbc-support-example')
+include 'ftp-example'
+

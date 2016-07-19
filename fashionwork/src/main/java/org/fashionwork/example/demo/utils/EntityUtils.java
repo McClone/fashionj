@@ -59,7 +59,4 @@ public class EntityUtils {
         return entityColumnSql;
     }
 
-    public static void main(String[] args) {
-        System.out.println(EntityUtils.getEntityColumnSql(User.class));
-    }
 }
