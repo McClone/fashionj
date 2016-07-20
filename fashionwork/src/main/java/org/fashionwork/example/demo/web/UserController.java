@@ -5,8 +5,6 @@ import org.fashionwork.example.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +18,12 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> findUser(@PathVariable String id) {
@@ -29,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/")
-    public ResponseEntity<User> saveOrUpddateUser(@RequestBody User user) {
+    public ResponseEntity<User> saveOrUpdateUser(@RequestBody User user) {
         this.userService.saveUser(user);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }

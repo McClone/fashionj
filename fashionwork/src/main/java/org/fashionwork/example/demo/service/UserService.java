@@ -13,8 +13,6 @@ public interface UserService {
 
     User deleteUser(User user);
 
-    Iterable<User> findAll();
-
     User findUser(String id);
 
 }
