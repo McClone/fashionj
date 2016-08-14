@@ -29,10 +29,8 @@ repositories {
 
 
 dependencies {
-    compile('ojdbc14:ojdbc14:1.0')
+  //  compile('ojdbc14:ojdbc14:1.0')
     compile(project(':spring-data-jdbc-support'))
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-
-
