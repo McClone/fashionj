@@ -24,7 +24,7 @@ public class DefaultRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
-        token.getPassword();
+        String password = String.valueOf(token.getPassword());
         return null;
     }
 }
