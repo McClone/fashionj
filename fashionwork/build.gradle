@@ -1,9 +1,11 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.0.BUILD-SNAPSHOT'
+        springBootVersion = '1.4.3.RELEASE'
     }
     repositories {
-        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
@@ -37,7 +39,7 @@ dependencies {
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
 
     runtime('org.hsqldb:hsqldb')
-    compile('ojdbc14:ojdbc14:1.0')
+//    compile('ojdbc14:ojdbc14:1.0')
     compile(project(':spring-data-jdbc-support'))
     compile group: 'javax.el', name: 'el-api', version: '2.2'
 

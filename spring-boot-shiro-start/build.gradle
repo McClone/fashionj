@@ -1,9 +1,11 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.0.BUILD-SNAPSHOT'
+        springBootVersion = '1.4.3.RELEASE'
     }
     repositories {
-        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }

@@ -1,4 +1,4 @@
-rootProject.name = 'demo'
+rootProject.name = 'fashionj'
 include('spring-boot-shiro-start')
 include('spring-boot-shiro-start-example')
 include('spring-session-example')
@@ -7,4 +7,5 @@ include('hibernate-search-example')
 include('mybatis-spring-boot-starter-example')
 include('spring-data-jdbc-support')
 include('spring-data-jdbc-support-example')
-include 'ftp-example'
+include('ftp-example')
+include('fashionwork')
