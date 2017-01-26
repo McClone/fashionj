@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+		springBootVersion = '1.4.3.RELEASE'
 	}
 	repositories {
 		maven {
@@ -17,14 +17,14 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-boot'
 
 jar {
-	baseName = 'demo'
+	baseName = 'spring-batch-example'
 	version = '0.0.1-SNAPSHOT'
 }
-
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	maven {
@@ -37,11 +37,11 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-aop')
-	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	compile('org.springframework.boot:spring-boot-starter-batch')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	runtime('org.springframework.boot:spring-boot-devtools')
-	compileOnly('org.projectlombok:lombok')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	runtime('org.hsqldb:hsqldb')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	
 }
+
+
