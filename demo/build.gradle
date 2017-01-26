@@ -43,5 +43,7 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	
+
+    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.0.4'
+
 }
